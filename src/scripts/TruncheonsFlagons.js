@@ -70,11 +70,14 @@ const calculateWinner = () => {
 
 const saveScores = () => {
     const timestamp = Date.now()
-
+    let fetches = []
     for (const [key, teamScore] of activeTeams) {
         teamScore.timeStamp = timestamp
-        addScore(teamScore)
+        fetches.push(addScore(teamScore))
     }
+    Promise.all(fetches).then(()=> {
+        applicationEventHub.dispatchEvent( new CustomEvent("newData") )
+    })
 }
 
 const render = () => {
@@ -118,3 +121,4 @@ export const TruncheonsFlagons = () => {
     Leaderboard()
     render()
 }
+

@@ -26,11 +26,10 @@ componentContainer.on("submit", submitEvent => {
                 lastName: lastName.value,
                 teamId: parseInt(chosenTeam.value, 10)
             })
-                .then(() => {
-                    firstName.value = ""
-                    lastName.value = ""
-                    chosenTeam.value = 0
-                })
+            .then(()=> {
+                applicationEventHub.dispatchEvent( new CustomEvent("newData") )
+            })
+
         }
     }
 })
@@ -48,9 +47,8 @@ const render = teamArray => {
             <fieldset>
                 <select name="team" required>
                     <option value="0">Please select a team...</option>
-                    ${
-                        teamArray.map(team => `<option value="${team.id}">${team.name}</option>`)
-                    }
+                    ${teamArray.map(team => `<option value="${team.id}">${team.name}</option>`)
+        }
                 </select>
             </fieldset>
 

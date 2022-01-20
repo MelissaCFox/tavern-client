@@ -1,4 +1,5 @@
 import { addTeam } from "./TeamProvider.js"
+import { applicationEventHub } from "../utils.js"
 
 const componentContainer = document.querySelector(".teamForm")
 
@@ -12,10 +13,9 @@ componentContainer.on("submit", submitEvent => {
             addTeam({
                 name: name.value
             })
-                .then(() => {
-                    name.value = ""
-                    name.focus()
-                })
+            .then(()=> {
+                applicationEventHub.dispatchEvent( new CustomEvent("newData") )
+            })
         }
     }
 })
