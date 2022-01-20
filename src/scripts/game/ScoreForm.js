@@ -36,15 +36,15 @@ export const ScoreForm = ({ first, second, third, currentRound: round }) => {
         <div class="entryForm">
             <h1>Round ${round}</h1>
             <fieldset>
-                <label for="first">${teams.find(t => t.id === first).moniker}</label>
+                <label for="first">${teams.find(t => t.id === first).name}</label>
                 <input class="input--score" name="first" autofocus type="text" />
             </fieldset>
             <fieldset>
-                <label for="second">${teams.find(t => t.id === second).moniker}</label>
+                <label for="second">${teams.find(t => t.id === second).name}</label>
                 <input class="input--score" name="second" type="text" />
             </fieldset>
             <fieldset>
-                <label for="third">${teams.find(t => t.id === third).moniker}</label>
+                <label for="third">${teams.find(t => t.id === third).name}</label>
                 <input class="input--score" name="third" type="text" />
             </fieldset>
             <button class="btn btn--info" id="saveRound">Save Round Scores</button>

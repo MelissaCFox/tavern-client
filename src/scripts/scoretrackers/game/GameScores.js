@@ -18,7 +18,7 @@ const render = (activeTeams, teams) => {
                     if (team !== null) {
                         return `
                                 <div class="team">
-                                    <div class="team__column team__name">${team.moniker}</div>
+                                    <div class="team__column team__name">${team.name}</div>
                                     <div class="team__column team__score">${teamScore.score}</div>
                                 </div>
                             `

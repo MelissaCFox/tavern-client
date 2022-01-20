@@ -1,5 +1,5 @@
 export const Team = team => {
     return `
-        <div class="team">${team.moniker}</div>
+        <div class="team">${team.name}</div>
     `
 }

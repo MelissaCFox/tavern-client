@@ -64,7 +64,7 @@ const calculateWinner = () => {
     const teams = useTeams();
 
     const winnerId = [...activeTeams.values()].sort((c,n) => n.score - c.score)[0].teamId
-    const winner = teams.find(t => t.id === winnerId).moniker
+    const winner = teams.find(t => t.id === winnerId).name
     alert(`The winner is ${winner}`)
 }
 
@@ -72,7 +72,7 @@ const saveScores = () => {
     const timestamp = Date.now()
 
     for (const [key, teamScore] of activeTeams) {
-        teamScore.timestamp = timestamp
+        teamScore.timeStamp = timestamp
         addScore(teamScore)
     }
 }

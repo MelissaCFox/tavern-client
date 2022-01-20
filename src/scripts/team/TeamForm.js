@@ -6,15 +6,15 @@ componentContainer.on("submit", submitEvent => {
     submitEvent.preventDefault()
 
     if (submitEvent.target.id === "teamForm") {
-        const moniker = componentContainer.querySelector("input[name='moniker']")
+        const name = componentContainer.querySelector("input[name='name']")
 
-        if (moniker.value !== "") {
+        if (name.value !== "") {
             addTeam({
-                moniker: moniker.value
+                name: name.value
             })
                 .then(() => {
-                    moniker.value = ""
-                    moniker.focus()
+                    name.value = ""
+                    name.focus()
                 })
         }
     }
@@ -25,7 +25,7 @@ export const TeamForm = () => {
         <h3>New Team</h3>
         <form id="teamForm">
             <fieldset>
-                <input name="moniker" autofocus required type="text" placeholder="Team name" />
+                <input name="name" autofocus required type="text" placeholder="Team name" />
             </fieldset>
             <button class="btn btn--success btn--small" id="addTeam">Create Team</button>
         </form>
